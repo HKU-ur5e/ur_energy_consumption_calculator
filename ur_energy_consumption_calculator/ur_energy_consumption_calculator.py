@@ -29,7 +29,7 @@ class EnergyConsumptionCalculator(Node):
 
         self.joint_work_done = JointWorkDoneStamped()
         self.joint_work_done.header = msg.header
-        # Calculate each joint work done and total work done for all joints
+        # Calculate each joint work done and pass it to the cumulative dictionary
         for joint in range(len(msg.name)):
             joint_effort = abs(msg.effort[joint])
             joint_angular_displacement = abs(msg.position[joint] - self.previous_joint_position[joint])
